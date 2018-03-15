@@ -1,36 +1,58 @@
 ﻿using System;
 using System.Speech.Synthesis;
 
+
 namespace ConsoleApp1
 {
     class Program
     {
-
+        
             
         public static Boolean firstRun = true;
-        static void Main(string[] args)
+        public static string arg = "";
+       public static void Main(string[] args)
         {
+            
+            arg = args[0];
             Starter();
+           
         }
-    
 
-    
-        static void Starter()
+
+
+        public static void Starter()
         {
+            //Console.WriteLine(arg);
             if (firstRun)
             {
-                Console.WriteLine("Good Morning. What do you want to do? (type help for info)");
                 firstRun = false;
+                if (arg == "bmi") { Bmicalc(); }
+                if (arg == "note") { Grader(); }
+                if (arg == "day") { Console.WriteLine(DateTime.Now.DayOfWeek); Starter(); }
+                if (arg == "spreche") { Spreche(); }
+                if (arg == "help") { Help(); }
+                if (arg == "calc") { Calc.Calcer(); }
+               
+         
+                else
+                {
+                    Console.WriteLine("Good Morning. What do you want to do? (type help for info)");
+                    firstRun = false;
+                }
+
+
             }
+
+
             else { Console.WriteLine("What can I do for you?"); }
             String task = Console.ReadLine();
             if (task == "bmi") { Bmicalc(); }
             if (task == "note") { Grader(); }
             if (task == "day") { Console.WriteLine(DateTime.Now.DayOfWeek); Starter(); }
-            if (task == "spreche") { Spreche(); }
-            if (task == "help"){ Help(); }
+            if (task == "spreche") {Spreche(); }
+            if (task == "help") { Help(); }
+            if (task == "calc") { Calc.Calcer(); }
         }
-
 
         static void Help()
         {
@@ -39,6 +61,7 @@ namespace ConsoleApp1
             Console.WriteLine("help:    Befehlsinfomrmation");
             Console.WriteLine("day:     Wochentag");
             Console.WriteLine("spreche: Sprachgenerator");
+            Console.WriteLine("calc:    Taschenrechner");
 
             Starter();
         }

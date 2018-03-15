@@ -11,7 +11,7 @@ namespace ConsoleApp1
     {
         public Gradebook()
         {
-
+            Console.WriteLine("123");
         }
         
         public void AddGrade(float grade)
