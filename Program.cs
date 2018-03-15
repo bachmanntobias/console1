@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Speech.Synthesis;
 
 namespace ConsoleApp1
 {
@@ -13,7 +14,7 @@ namespace ConsoleApp1
         }
     
 
-
+    
         static void Starter()
         {
             if (firstRun)
@@ -24,20 +25,34 @@ namespace ConsoleApp1
             else { Console.WriteLine("What can I do for you?"); }
             String task = Console.ReadLine();
             if (task == "bmi") { Bmicalc(); }
-            if (task == "grader") { Grader(); }
+            if (task == "note") { Grader(); }
             if (task == "day") { Console.WriteLine(DateTime.Now.DayOfWeek); Starter(); }
-            if (task == "help")
-            {
-                Console.WriteLine("gradebook  = Gradebook App");
-                Console.WriteLine(" bmi  = BMI Calculator");
-                Console.WriteLine("help = infomrmation");
-                Console.WriteLine("day = weekday");
-         
-                Starter();
-
-            }
+            if (task == "spreche") { Spreche(); }
+            if (task == "help"){ Help(); }
         }
 
+
+        static void Help()
+        {
+            Console.WriteLine("note:    Notenliste");
+            Console.WriteLine("bmi:     BMI-Rechner");
+            Console.WriteLine("help:    Befehlsinfomrmation");
+            Console.WriteLine("day:     Wochentag");
+            Console.WriteLine("spreche: Sprachgenerator");
+
+            Starter();
+        }
+
+        static void Spreche()
+        {
+            Console.WriteLine("Was soll ich sagen?");
+            String speak = Console.ReadLine();
+            SpeechSynthesizer synth = new SpeechSynthesizer();
+            synth.Speak(speak);
+            Starter();
+
+
+        }
         static void Bmicalc()
         {
             Console.WriteLine("Body Mass Index");
