@@ -17,8 +17,15 @@ namespace ConsoleApp1
         public static void Calcer()
         {
             Console.WriteLine("TEST");
+            String input = Console.Readline();
+            String[] buchstabe = phrase.Split('');
+            if (buchstabe.length > 1 ) {
+                for(int i = 0; i < buchstabe.length; i++) {
+                    
 
+                } 
 
+            }
 
             Program.Starter();
         }
