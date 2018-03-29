@@ -6,8 +6,8 @@ namespace ConsoleApp1
 {
     class Program
     {
-        
-            
+
+        ConsoleColor(red);
         public static Boolean firstRun = true;
         public static string arg = "";
        public static void Main(string[] args)
@@ -33,6 +33,7 @@ namespace ConsoleApp1
                 if (arg == "help") { Help(); }
                 if (arg == "calc") { Calc.Calcer(); }
                
+
          
                 else
                 {
@@ -62,6 +63,20 @@ namespace ConsoleApp1
             Console.WriteLine("day:     Wochentag");
             Console.WriteLine("spreche: Sprachgenerator");
             Console.WriteLine("calc:    Taschenrechner");
+
+            Starter();
+        }
+
+        static void Txt()
+        {
+            Console.WriteLine("Insert TXT Title");
+            String title = Console.ReadLine();
+            using (StreamWriter outputFile = File.CreateText("example.txt"))
+            {
+                book.WriteGrades(outputFile);
+                outputFile.Close();
+            }
+
 
             Starter();
         }
